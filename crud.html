@@ -145,7 +145,7 @@
                                     <input type="number" class="form-control border border-secondary-subtle"
                                         id="copiesSold" required>
                                 </div>
-                                <button id="btnFormAlbums" type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
+                                <button id="btnAgregarAlbums" type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
                             </form>
                         </div>
                     </div>
@@ -187,7 +187,7 @@
                                     <input type="text" class="form-control border border-secondary-subtle" id="genre"
                                         required>
                                 </div>
-                                <button type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
+                                <button id="btnAgregarGeneros" type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
                             </form>
                         </div>
 
@@ -228,7 +228,11 @@
                                     <label for="band" class="form-label">Nombre de la banda</label>
                                     <input type="text" class="form-control border border-secondary-subtle" id="band" required>
                                 </div>
-                                <button type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
+                                <div class="mb-3">
+                                    <label for="genreB" class="form-label">Género</label>
+                                    <input type="text" class="form-control border border-secondary-subtle" id="genreB" required>
+                                </div>
+                                <button id="btnAgregarBandas" type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
                             </form>
                         </div>
                 
@@ -275,6 +279,11 @@
                                         required>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="concertBand" class="form-label">Nombre del concierto</label>
+                                    <input type="text" class="form-control border border-secondary-subtle" id="concertBand"
+                                        required>
+                                </div>
+                                <div class="mb-3">
                                     <label for="concertDate" class="form-label">Fecha</label>
                                     <input type="date" class="form-control border border-secondary-subtle" id="concertDate"
                                         required>
@@ -289,7 +298,7 @@
                                     <input type="text" class="form-control border border-secondary-subtle" id="concertPlace"
                                         required>
                                 </div>
-                                <button type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
+                                <button id="btnAgregarConciertos" type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
                             </form>
                         </div>
                     </div>
@@ -305,7 +314,13 @@
             </span>
         </div>
     </footer>
-    <script src="crud.js"></script>
+
+    <!-- <script src="crud.js"></script> -->
+    <script src="crudBandas.js"></script>
+    <script src="crudAlbums.js"></script>
+    <script src="crudConciertos.js"></script>
+    <script src="crudGeneros.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
