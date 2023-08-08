@@ -87,21 +87,29 @@
                     <table class="table">
                         <thead class="table-success">
                             <tr>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Banda</th>
+                                <th scope="col">Álbum</th>
+                                <th scope="col">Lanzamiento</th>
+                                <th scope="col">Lugar</th>
+                                <th scope="col">Duración en minutos</th>
+                                <th scope="col">Copias vendidas</th>
                                 <th scope="col">Editar</th>
+                                <th scope="col">Borrar</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
+                                <td id="tdAlbumsBanda"></td>
+                                <td id="tdAlbumsAlbum"></td>
+                                <td id="tdAlbumsLanzamiento"></td>
+                                <td id="tdAlbumsLugar"></td>
+                                <td id="tdAlbumsDuracion"></td>
+                                <td id="tdAlbumsCopias"></td>
+                                <td id="tdAlbumsEditar"></td>
+                                <td id="tdAlbumsBorrar"></td>
                             </tr>
                     </table>
-                    <button class="btn btn-primary">Agregar</button>
+                    <button id="btnTablaAlbums" class="btn btn-primary">Agregar</button>
                 </div>
                 <hr>
                 <div id="formAlbums" class="py-3">
@@ -136,12 +144,31 @@
                             <input type="number" class="form-control border border-secondary-subtle"
                                 id="copiesSold" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Subir</button>
+                        <button id="btnFormAlbums" type="submit" class="btn btn-primary">Subir</button>
                     </form>
                 </div>
             </div>
             <!-- Géneros -->
             <div class="tab-pane" id="generos" role="tabpanel" aria-labelledby="generos-tab" tabindex="0">
+                <div id="tablaGeneros" class="pt-4">
+                    <table class="table">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">Género</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Borrar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="tdGenerosGenero"></td>
+                                <td id="tdGenerosEditar"></td>
+                                <td id="tdGenerosBorrar"></td>
+                            </tr>
+                    </table>
+                    <button id="btnTablaGeneros" class="btn btn-primary">Agregar</button>
+                </div>
+                <div id="formGeneros" class="py-3">
                 <form>
                     <div class="mb-3">
                         <label for="genre" class="form-label">Nombre del género</label>
@@ -150,9 +177,29 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Subir</button>
                 </form>
+                </div>
             </div>
             <!-- Bandas -->
             <div class="tab-pane" id="bandas" role="tabpanel" aria-labelledby="bandas-tab" tabindex="0">
+                <div id="tablaBandas" class="pt-4">
+                    <table class="table">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">Banda</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Borrar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="tdBandasBanda"></td>
+                                <td id="tdBandasEditar"></td>
+                                <td id="tdBandasBorrar"></td>
+                            </tr>
+                    </table>
+                    <button id="btnTablaBandas" class="btn btn-primary">Agregar</button>
+                </div>
+                <div id="formBandas" class="py-3">
                 <form>
                     <div class="mb-3">
                         <label for="band" class="form-label">Nombre de la banda</label>
@@ -161,9 +208,35 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Subir</button>
                 </form>
+                </div>
             </div>
             <!-- Conciertos -->
             <div class="tab-pane" id="conciertos" role="tabpanel" aria-labelledby="conciertos-tab" tabindex="0">
+                <div id="tablaConciertos" class="pt-4">
+                    <table class="table">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">Concierto</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Duración en minutos</th>
+                                <th scope="col">Lugar</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Borrar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="tdConciertosConcierto"></td>
+                                <td id="tdConciertosFecha"></td>
+                                <td id="tdConciertosDuracion"></td>
+                                <td id="tdConciertosLugar"></td>
+                                <td id="tdConciertosEditar"></td>
+                                <td id="tdConciertosBorrar"></td>
+                            </tr>
+                    </table>
+                    <button id="btnTablaConciertos" class="btn btn-primary">Agregar</button>
+                </div>
+                <div id="formConciertos" class="py-3">
                 <form>
                     <div class="mb-3">
                         <label for="concert" class="form-label">Nombre del concierto</label>
@@ -187,6 +260,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Subir</button>
                 </form>
+                </div>
             </div>
         </div>
 
