@@ -43,13 +43,12 @@
                             Datos
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg-end">
-                            <li><a class="dropdown-item" href="#" onclick="irAlbums('crud.html#albums')">Álbumes</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#" onclick="irGeneros('crud.html#generos')">Géneros
+                            <li><a id="menuAlbums" class="dropdown-item" href="crud.html#albums-tab">Álbumes</a></li>
+                            <li><a id="menuGeneros" class="dropdown-item" href="crud.html#generos-tab">Géneros
                                     musicales</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="irBandas('crud.html#bandas')">Bandas</a></li>
-                            <li><a class="dropdown-item" href="#"
-                                    onclick="irConciertos('crud.html#conciertos')">Conciertos</a></li>
+                            <li><a id="menuBandas" class="dropdown-item" href="crud.html#bandas-tab">Bandas</a></li>
+                            <li><a id="menuConciertos" class="dropdown-item"
+                                    href="crud.html#conciertos-tab">Conciertos</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -116,33 +115,33 @@
                     <form>
                         <div class="mb-3">
                             <label for="bandName" class="form-label">Banda</label>
-                            <input type="text" class="form-control border border-secondary-subtle"
-                                id="bandName" required>
+                            <input type="text" class="form-control border border-secondary-subtle" id="bandName"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="albumName" class="form-label">Nombre del álbum</label>
-                            <input type="text" class="form-control border border-secondary-subtle"
-                                id="albumName" required>
+                            <input type="text" class="form-control border border-secondary-subtle" id="albumName"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="releaseDate" class="form-label">Fecha de lanzamiento</label>
-                            <input type="date" class="form-control border border-secondary-subtle"
-                                id="releaseDate" required>
+                            <input type="date" class="form-control border border-secondary-subtle" id="releaseDate"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="albumPlace" class="form-label">Lugar</label>
-                            <input type="text" class="form-control border border-secondary-subtle"
-                                id="albumPlace" required>
+                            <input type="text" class="form-control border border-secondary-subtle" id="albumPlace"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="albumDuration" class="form-label">Duración en minutos</label>
-                            <input type="time" class="form-control border border-secondary-subtle"
-                                id="albumDuration" required>
+                            <input type="time" class="form-control border border-secondary-subtle" id="albumDuration"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="copiesSold" class="form-label">Copias vendidas</label>
-                            <input type="number" class="form-control border border-secondary-subtle"
-                                id="copiesSold" required>
+                            <input type="number" class="form-control border border-secondary-subtle" id="copiesSold"
+                                required>
                         </div>
                         <button id="btnFormAlbums" type="submit" class="btn btn-primary">Subir</button>
                     </form>
@@ -169,14 +168,13 @@
                     <button id="btnTablaGeneros" class="btn btn-primary">Agregar</button>
                 </div>
                 <div id="formGeneros" class="py-3">
-                <form>
-                    <div class="mb-3">
-                        <label for="genre" class="form-label">Nombre del género</label>
-                        <input type="text" class="form-control border border-secondary-subtle"
-                            id="genre" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Subir</button>
-                </form>
+                    <form>
+                        <div class="mb-3">
+                            <label for="genre" class="form-label">Nombre del género</label>
+                            <input type="text" class="form-control border border-secondary-subtle" id="genre" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subir</button>
+                    </form>
                 </div>
             </div>
             <!-- Bandas -->
@@ -200,14 +198,13 @@
                     <button id="btnTablaBandas" class="btn btn-primary">Agregar</button>
                 </div>
                 <div id="formBandas" class="py-3">
-                <form>
-                    <div class="mb-3">
-                        <label for="band" class="form-label">Nombre de la banda</label>
-                        <input type="text" class="form-control border border-secondary-subtle"
-                            id="band" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Subir</button>
-                </form>
+                    <form>
+                        <div class="mb-3">
+                            <label for="band" class="form-label">Nombre de la banda</label>
+                            <input type="text" class="form-control border border-secondary-subtle" id="band" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subir</button>
+                    </form>
                 </div>
             </div>
             <!-- Conciertos -->
@@ -237,29 +234,29 @@
                     <button id="btnTablaConciertos" class="btn btn-primary">Agregar</button>
                 </div>
                 <div id="formConciertos" class="py-3">
-                <form>
-                    <div class="mb-3">
-                        <label for="concert" class="form-label">Nombre del concierto</label>
-                        <input type="text" class="form-control border border-secondary-subtle"
-                            id="concert" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="concertDate" class="form-label">Fecha</label>
-                        <input type="date" class="form-control border border-secondary-subtle"
-                            id="concertDate" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="concertDuration" class="form-label">Duración en minutos</label>
-                        <input type="time" class="form-control border border-secondary-subtle"
-                            id="concertDuration" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="concertPlace" class="form-label">Lugar</label>
-                        <input type="text" class="form-control border border-secondary-subtle"
-                            id="concertPlace" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Subir</button>
-                </form>
+                    <form>
+                        <div class="mb-3">
+                            <label for="concert" class="form-label">Nombre del concierto</label>
+                            <input type="text" class="form-control border border-secondary-subtle" id="concert"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="concertDate" class="form-label">Fecha</label>
+                            <input type="date" class="form-control border border-secondary-subtle" id="concertDate"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="concertDuration" class="form-label">Duración en minutos</label>
+                            <input type="time" class="form-control border border-secondary-subtle" id="concertDuration"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="concertPlace" class="form-label">Lugar</label>
+                            <input type="text" class="form-control border border-secondary-subtle" id="concertPlace"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subir</button>
+                    </form>
                 </div>
             </div>
         </div>
