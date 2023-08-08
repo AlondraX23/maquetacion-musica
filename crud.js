@@ -17,6 +17,28 @@ fetch('http://127.0.0.1:8000/api/bands')
         listaB.innerHTML = contenidoB;
         console.log(arrBandas)
     })
+    function editarDatosBandas() {
+        var tabla = document.getElementById("tdBandasBanda");
+        fetch('http://127.0.0.1:8000/api/bands')
+            .then(function(respuesta) {
+                return respuesta.json();
+            })
+            .then(function(datos) {
+                var contenido="";
+                for (let i = 0; i < datos.length; i++) {
+                    contenido = contenido + "<tr><td>" + datos[i].name + "</td><td><button onclick='editarDatosBandas' class='btn btn-warning'>Editar</button>" + "<button onclick='borrarBandas("+datos[i].id+")' class='btn btn-danger'>Eliminar</button></td><tr>"; 
+                }
+                tabla.innerHTML = contenido;
+            })
+    }
+    function borrarBandas(id){
+        fetch('http://127.0.0.1:8000/api/bands' + id,{
+        method: "DELETE"    
+        })
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+    }
+    
 
 //ALBUMS
 fetch('http://127.0.0.1:8000/api/albums')
@@ -34,6 +56,28 @@ fetch('http://127.0.0.1:8000/api/albums')
         }
         listaA.innerHTML = contenidoA;
     })
+    function editarDatosAlbums() {
+        var tabla = document.getElementById("tdAlbumsBanda");
+        fetch('http://127.0.0.1:8000/api/albums')
+            .then(function(respuesta) {
+                return respuesta.json();
+            })
+            .then(function(datos) {
+                var contenido="";
+                for (let i = 0; i < datos.length; i++) {
+                    contenido = contenido + "<tr><td>" + datos[i].name + "</td><td><button onclick='editarDatosAlbums' class='btn btn-warning'>Editar</button>" + "<button onclick='borrarAlbums("+datos[i].id+")' class='btn btn-danger'>Eliminar</button></td><tr>"; 
+                }
+                tabla.innerHTML = contenido;
+            })
+    }
+    function borrarAlbums(id){
+        fetch('http://127.0.0.1:8000/api/albums' + id, {
+        method: "DELETE"    
+    })
+        .then(res=>res.json())
+        .then(json=>console.log(json))
+}
+        
 
 //GENEROS
 fetch('http://127.0.0.1:8000/api/genres')
@@ -51,6 +95,27 @@ fetch('http://127.0.0.1:8000/api/genres')
         }
         listaG.innerHTML = contenidoG;
     })
+    function editarDatosGeneros() {
+        var tabla = document.getElementById("tdGenerosGenero");
+        fetch('http://127.0.0.1:8000/api/genres')
+            .then(function(respuesta) {
+                return respuesta.json();
+            })
+            .then(function(datos) {
+                var contenido="";
+                for (let i = 0; i < datos.length; i++) {
+                    contenido = contenido + "<tr><td>" + datos[i].name + "</td><td><button onclick='editarDatosGeneros' class='btn btn-warning'>Editar</button>" + "<button onclick='borrarGeneros("+datos[i].id+")' class='btn btn-danger'>Eliminar</button></td><tr>"; 
+                }
+                tabla.innerHTML = contenido;
+            })
+    }
+    function borrarGeneros(id){
+        fetch('http://127.0.0.1:8000/api/genres' + id, {
+            method: "DELETE"    
+        })
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+    }
 
 //CONCIERTOS
 fetch('http://127.0.0.1:8000/api/concerts')
@@ -68,3 +133,24 @@ fetch('http://127.0.0.1:8000/api/concerts')
         }
         listaC.innerHTML = contenidoC;
     })
+    function editarDatosBandas() {
+        var tabla = document.getElementById("tdConciertosConcierto");
+        fetch('http://127.0.0.1:8000/api/concerts')
+            .then(function(respuesta) {
+                return respuesta.json();
+            })
+            .then(function(datos) {
+                var contenido="";
+                for (let i = 0; i < datos.length; i++) {
+                    contenido = contenido + "<tr><td>" + datos[i].name + "</td><td>" + datos[i].date + "</td><td>" + datos[i].time + "</td><td>" + datos[i].place + "</td><td><button onclick='editarDatosConciertos' class='btn btn-warning'>Editar</button>" + "<button onclick='borrarConciertos("+datos[i].id+")' class='btn btn-danger'>Eliminar</button></td><tr>"; 
+                }
+                tabla.innerHTML = contenido;
+            })
+    }
+    function borrarConciertos(id){
+        fetch('http://127.0.0.1:8000/api/concerts' + id, {
+            method: "DELETE"    
+        })
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+    }
