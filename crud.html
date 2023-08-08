@@ -57,7 +57,7 @@
     </nav>
     <main class="contenido container py-3">
         <!-- Nav tabs -->
-        <ul class="nav nav-underline justify-content-center" id="myTab" role="tablist">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active color-primario" id="albums-tab" data-bs-toggle="tab"
                     data-bs-target="#albums" type="button" role="tab" aria-controls="albums"
@@ -82,181 +82,218 @@
         <div class="tab-content">
             <!-- Álbums -->
             <div class="tab-pane active" id="albums" role="tabpanel" aria-labelledby="albums-tab" tabindex="0">
-                <div id="tablaAlbums" class="pt-4">
-                    <table class="table">
-                        <thead class="table-success">
-                            <tr>
-                                <th scope="col">Banda</th>
-                                <th scope="col">Álbum</th>
-                                <th scope="col">Lanzamiento</th>
-                                <th scope="col">Lugar</th>
-                                <th scope="col">Duración en minutos</th>
-                                <th scope="col">Copias vendidas</th>
-                                <th scope="col">Editar</th>
-                                <th scope="col">Borrar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td id="tdAlbumsBanda"></td>
-                                <td id="tdAlbumsAlbum"></td>
-                                <td id="tdAlbumsLanzamiento"></td>
-                                <td id="tdAlbumsLugar"></td>
-                                <td id="tdAlbumsDuracion"></td>
-                                <td id="tdAlbumsCopias"></td>
-                                <td id="tdAlbumsEditar"></td>
-                                <td id="tdAlbumsBorrar"></td>
-                            </tr>
-                    </table>
-                    <button id="btnTablaAlbums" class="btn btn-primary">Agregar</button>
-                </div>
-                <hr>
-                <div id="formAlbums" class="py-3">
-                    <form>
-                        <div class="mb-3">
-                            <label for="bandName" class="form-label">Banda</label>
-                            <input type="text" class="form-control border border-secondary-subtle" id="bandName"
-                                required>
+                <ul class="nav nav-pills justify-content-end pt-4">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#formA" type="button" role="tab" aria-selected="false">Añadir</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tableA" type="button" role="tab"
+                            aria-selected="true">Registros</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tableA" role="tabpanel">
+                        <div id="tablaAlbums" class="pt-4">
+                            <table class="table">
+                                <thead class="table table-hover">
+                                    <tr>
+                                        <th scope="col">Banda</th>
+                                        <th scope="col">Álbum</th>
+                                        <th scope="col">Lanzamiento</th>
+                                        <th scope="col">Lugar</th>
+                                        <th scope="col">Duración en minutos</th>
+                                        <th scope="col">Copias vendidas</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Borrar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tdAlbumsBanda"></tbody>
+                            </table>
                         </div>
-                        <div class="mb-3">
-                            <label for="albumName" class="form-label">Nombre del álbum</label>
-                            <input type="text" class="form-control border border-secondary-subtle" id="albumName"
-                                required>
+                    </div>
+                    <div class="tab-pane fade" id="formA" role="tabpanel">
+                        <div id="formAlbums" class="py-3">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="bandName" class="form-label">Banda</label>
+                                    <input type="text" class="form-control border border-secondary-subtle" id="bandName"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="albumName" class="form-label">Nombre del álbum</label>
+                                    <input type="text" class="form-control border border-secondary-subtle"
+                                        id="albumName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="releaseDate" class="form-label">Fecha de lanzamiento</label>
+                                    <input type="date" class="form-control border border-secondary-subtle"
+                                        id="releaseDate" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="albumPlace" class="form-label">Lugar</label>
+                                    <input type="text" class="form-control border border-secondary-subtle"
+                                        id="albumPlace" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="albumDuration" class="form-label">Duración en minutos</label>
+                                    <input type="time" class="form-control border border-secondary-subtle"
+                                        id="albumDuration" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="copiesSold" class="form-label">Copias vendidas</label>
+                                    <input type="number" class="form-control border border-secondary-subtle"
+                                        id="copiesSold" required>
+                                </div>
+                                <button id="btnFormAlbums" type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
+                            </form>
                         </div>
-                        <div class="mb-3">
-                            <label for="releaseDate" class="form-label">Fecha de lanzamiento</label>
-                            <input type="date" class="form-control border border-secondary-subtle" id="releaseDate"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="albumPlace" class="form-label">Lugar</label>
-                            <input type="text" class="form-control border border-secondary-subtle" id="albumPlace"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="albumDuration" class="form-label">Duración en minutos</label>
-                            <input type="time" class="form-control border border-secondary-subtle" id="albumDuration"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="copiesSold" class="form-label">Copias vendidas</label>
-                            <input type="number" class="form-control border border-secondary-subtle" id="copiesSold"
-                                required>
-                        </div>
-                        <button id="btnFormAlbums" type="submit" class="btn btn-primary">Subir</button>
-                    </form>
+                    </div>
                 </div>
             </div>
             <!-- Géneros -->
             <div class="tab-pane" id="generos" role="tabpanel" aria-labelledby="generos-tab" tabindex="0">
-                <div id="tablaGeneros" class="pt-4">
-                    <table class="table">
-                        <thead class="table-success">
-                            <tr>
-                                <th scope="col">Género</th>
-                                <th scope="col">Editar</th>
-                                <th scope="col">Borrar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td id="tdGenerosGenero"></td>
-                                <td id="tdGenerosEditar"></td>
-                                <td id="tdGenerosBorrar"></td>
-                            </tr>
-                    </table>
-                    <button id="btnTablaGeneros" class="btn btn-primary">Agregar</button>
-                </div>
-                <div id="formGeneros" class="py-3">
-                    <form>
-                        <div class="mb-3">
-                            <label for="genre" class="form-label">Nombre del género</label>
-                            <input type="text" class="form-control border border-secondary-subtle" id="genre" required>
+                <ul class="nav nav-pills justify-content-end pt-4">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#formG" type="button" role="tab" aria-selected="false">Añadir</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tableG" type="button" role="tab"
+                            aria-selected="true">Registros</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tableG" role="tabpanel">
+
+                        <div id="tablaGeneros" class="pt-4">
+                            <table class="table">
+                                <thead class="table table-hover">
+                                    <tr>
+                                        <th scope="col">Género</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Borrar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tdGenerosGenero"></tbody>
+                            </table>
                         </div>
-                        <button type="submit" class="btn btn-primary">Subir</button>
-                    </form>
+
+                    </div>
+                    <div class="tab-pane fade" id="formG" role="tabpanel">
+
+                        <div id="formGeneros" class="py-3">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="genre" class="form-label">Nombre del género</label>
+                                    <input type="text" class="form-control border border-secondary-subtle" id="genre"
+                                        required>
+                                </div>
+                                <button type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <!-- Bandas -->
             <div class="tab-pane" id="bandas" role="tabpanel" aria-labelledby="bandas-tab" tabindex="0">
-                <div id="tablaBandas" class="pt-4">
-                    <table class="table">
-                        <thead class="table-success">
-                            <tr>
-                                <th scope="col">Banda</th>
-                                <th scope="col">Editar</th>
-                                <th scope="col">Borrar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td id="tdBandasBanda"></td>
-                                <td id="tdBandasEditar"></td>
-                                <td id="tdBandasBorrar"></td>
-                            </tr>
-                    </table>
-                    <button id="btnTablaBandas" class="btn btn-primary">Agregar</button>
-                </div>
-                <div id="formBandas" class="py-3">
-                    <form>
-                        <div class="mb-3">
-                            <label for="band" class="form-label">Nombre de la banda</label>
-                            <input type="text" class="form-control border border-secondary-subtle" id="band" required>
+                <ul class="nav nav-pills justify-content-end pt-4">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#formB" type="button" role="tab" aria-selected="false">Añadir</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tableB" type="button" role="tab"
+                            aria-selected="true">Registros</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tableB" role="tabpanel">
+                    
+                        <div id="tablaBandas" class="pt-4">
+                            <table class="table">
+                                <thead class="table table-hover">
+                                    <tr>
+                                        <th scope="col">Banda</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Borrar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tdBandasBanda"></tbody>
+                            </table>
                         </div>
-                        <button type="submit" class="btn btn-primary">Subir</button>
-                    </form>
+                    </div>
+                    <div class="tab-pane fade" id="formB" role="tabpanel">
+                        <div id="formBandas" class="py-3">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="band" class="form-label">Nombre de la banda</label>
+                                    <input type="text" class="form-control border border-secondary-subtle" id="band" required>
+                                </div>
+                                <button type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
+                            </form>
+                        </div>
+                
+                    </div>
                 </div>
             </div>
             <!-- Conciertos -->
             <div class="tab-pane" id="conciertos" role="tabpanel" aria-labelledby="conciertos-tab" tabindex="0">
-                <div id="tablaConciertos" class="pt-4">
-                    <table class="table">
-                        <thead class="table-success">
-                            <tr>
-                                <th scope="col">Concierto</th>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Duración en minutos</th>
-                                <th scope="col">Lugar</th>
-                                <th scope="col">Editar</th>
-                                <th scope="col">Borrar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td id="tdConciertosConcierto"></td>
-                                <td id="tdConciertosFecha"></td>
-                                <td id="tdConciertosDuracion"></td>
-                                <td id="tdConciertosLugar"></td>
-                                <td id="tdConciertosEditar"></td>
-                                <td id="tdConciertosBorrar"></td>
-                            </tr>
-                    </table>
-                    <button id="btnTablaConciertos" class="btn btn-primary">Agregar</button>
-                </div>
-                <div id="formConciertos" class="py-3">
-                    <form>
-                        <div class="mb-3">
-                            <label for="concert" class="form-label">Nombre del concierto</label>
-                            <input type="text" class="form-control border border-secondary-subtle" id="concert"
-                                required>
+                <ul class="nav nav-pills justify-content-end pt-4">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#formC" type="button" role="tab" aria-selected="false">Añadir</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tableC" type="button" role="tab"
+                            aria-selected="true">Registros</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tableC" role="tabpanel">
+                    
+                        <div id="tablaConciertos" class="pt-4">
+                            <table class="table">
+                                <thead class="table table-hover">
+                                    <tr>
+                                        <th scope="col">Concierto</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Duración en minutos</th>
+                                        <th scope="col">Lugar</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Borrar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tdConciertosConcierto"></tbody>
+                            </table>
                         </div>
-                        <div class="mb-3">
-                            <label for="concertDate" class="form-label">Fecha</label>
-                            <input type="date" class="form-control border border-secondary-subtle" id="concertDate"
-                                required>
+                    </div>
+                    <div class="tab-pane fade" id="formC" role="tabpanel">
+                        
+                        <div id="formConciertos" class="py-3">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="concert" class="form-label">Nombre del concierto</label>
+                                    <input type="text" class="form-control border border-secondary-subtle" id="concert"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="concertDate" class="form-label">Fecha</label>
+                                    <input type="date" class="form-control border border-secondary-subtle" id="concertDate"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="concertDuration" class="form-label">Duración en minutos</label>
+                                    <input type="time" class="form-control border border-secondary-subtle" id="concertDuration"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="concertPlace" class="form-label">Lugar</label>
+                                    <input type="text" class="form-control border border-secondary-subtle" id="concertPlace"
+                                        required>
+                                </div>
+                                <button type="submit" class="btn btn-outline-primary rounded-pill">Subir</button>
+                            </form>
                         </div>
-                        <div class="mb-3">
-                            <label for="concertDuration" class="form-label">Duración en minutos</label>
-                            <input type="time" class="form-control border border-secondary-subtle" id="concertDuration"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="concertPlace" class="form-label">Lugar</label>
-                            <input type="text" class="form-control border border-secondary-subtle" id="concertPlace"
-                                required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Subir</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -269,10 +306,10 @@
             </span>
         </div>
     </footer>
+    <script src="crud.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
-    <script src="crud.js"></script>
 </body>
 
 </html>
