@@ -1,4 +1,5 @@
 //BANDAS
+const arrBandas = [];
 fetch('http://127.0.0.1:8000/api/bands')
     .then(res => res.json())
     .then((data) => {
@@ -10,11 +11,11 @@ fetch('http://127.0.0.1:8000/api/bands')
 
         for (let i = 0; i < data.length; i++) {
             contenidoB += "<tr><td>" + data[i].name + "</td></tr>";
-            var nombreBandas = data[i].name;
 
-            console.log(nombreBandas)
+            // arrBandas.push(data[i].name);
         }
         listaB.innerHTML = contenidoB;
+        console.log(arrBandas)
     })
 
 //ALBUMS
@@ -28,10 +29,8 @@ fetch('http://127.0.0.1:8000/api/albums')
 
 
         for (let i = 0; i < data.length; i++) {
-            contenidoA += "<tr><td>" + data[i].id + "</td><td>" + data[i].name + "</td><td>" + data[i].release_date + "</td><td>" + data[i].place + "</td><td>" + data[i].duration + "</td><td>" + data[i].copies_sold + "</td></tr>";
-            var nombreBandas = data[i].name;
+            contenidoA += "<tr><td>" + data[i].name + "</td><td>" + data[i].band_id + "</td><td>" + data[i].release_date + "</td><td>" + data[i].place + "</td><td>" + data[i].duration + "</td><td>" + data[i].copies_sold + "</td></tr>";
 
-            console.log(nombreBandas)
         }
         listaA.innerHTML = contenidoA;
     })
@@ -48,9 +47,7 @@ fetch('http://127.0.0.1:8000/api/genres')
 
         for (let i = 0; i < data.length; i++) {
             contenidoG += "<tr><td>" +  data[i].name + "</td></tr>";
-            var nombreBandas = data[i].name;
 
-            console.log(nombreBandas)
         }
         listaG.innerHTML = contenidoG;
     })
@@ -67,9 +64,7 @@ fetch('http://127.0.0.1:8000/api/concerts')
 
         for (let i = 0; i < data.length; i++) {
             contenidoC += "<tr><td>" +  data[i].name + "</td></tr>";
-            var nombreBandas = data[i].name;
 
-            console.log(nombreBandas)
         }
         listaC.innerHTML = contenidoC;
     })
