@@ -16,6 +16,8 @@ fetch('http://127.0.0.1:8000/api/bands')
             var nombreBandas = data[i].name;
             var idBandas = data[i].id;
 
+            console.log(nombreBandas);
+
             // console.log(data[i].name);
             // console.log(data[i].id);
             
@@ -27,6 +29,180 @@ fetch('http://127.0.0.1:8000/api/bands')
         console.log(typeof arrId)
         console.log(arrName)
 
+//CANTIDAD DE COPIAS VENDIDAS POR ÁLBUM - BAR CHART
+fetch('http://127.0.0.1:8000/api/albums')         //Verificar URL
+        .then(res => res.json())
+        .then((data) => {
+            for (let i=0; i < data.length; i++) {
+                var nombresAlbumes = data[i].name;
+                var idCopies= data[i].copies_sold;     // Omití hacer arreglos con push. Hay que ver cómo funciona el citado de variables en la var trace.
+            }
+            function graficarCopiasVendidas(copies){ //¿Cuál variable se pondría como parámetro?
+                    var trace1 = [
+                    {
+                    x: [nombresAlbumes],
+                    y: [copies_sold],         
+                    type: 'bar'
+                    } 
+                ];
+                var layout = {
+                    title: 'Copias vendidas por álbum',
+                    xaxis: {
+                        title: 'Álbum',
+                    },
+                    yaxis: {
+                        title: 'Copias vendidas',
+                    }
+                };
+                Plotly.newPlot('graphic_1', trace1, layout);
+            }   
+        })
+
+//BANDAS POR GÉNERO - LINE CHART
+fetch('http://127.0.0.1:8000/api/bands')
+        .then(res => res.json())
+        .then((data) => {
+            for (let i=0; i < data.length; i++) {
+                var nombresBandas = data[i].name;
+                var idBandas= data[i].id;     // Omití hacer arreglos con push. Hay que ver cómo funciona el citado de variables en la var trace.
+            }
+            function graficarBandasXGenero(bandas, géneros){ //¿Cuál variable se pondría como parámetro?
+                    var trace1 = [
+                    {
+                    x: [nombresBandas],
+                    y: [idBandas],            //¿Esto sí va a especificar el género de cada banda? Quizás deba ligarse el nombre de los géneros mejor.
+                    type: 'scatter'
+                    } 
+                ];
+                var layout = {
+                    title: 'Bandas por género',
+                    xaxis: {
+                        title: 'Bandas',
+                    },
+                    yaxis: {
+                        title: 'Género',
+                    }
+                };
+                Plotly.newPlot('graphic_2', trace1, layout);
+            }   
+        })
+
+//BANDAS POR PAÍSES - BAR CHART
+fetch('http://127.0.0.1:8000/api/bands')
+        .then(res => res.json())
+        .then((data) => {
+            for (let i=0; i < data.length; i++) {
+                var nombresBandas = data[i].name;
+                var idPlaces= data[i].place;     // Omití hacer arreglos con push. Hay que ver cómo funciona el citado de variables en la var trace.
+            }
+            function graficarBandasXPais(bandas, paises){ //¿Cuál variable se pondría como parámetro?
+                    var trace1 = [
+                    {
+                    x: [nombresBandas],
+                    y: [idPlaces],            //¿Esto sí va a especificar el género de cada banda? Quizás deba ligarse el nombre de los géneros mejor.
+                    type: 'barr'
+                    } 
+                ];
+                var layout = {
+                    title: 'Bandas por países',
+                    xaxis: {
+                        title: 'Bandas',
+                    },
+                    yaxis: {
+                        title: 'Países',
+                    }
+                };
+                Plotly.newPlot('graphic_3', trace1, layout);
+            }   
+        })
+
+//ID (NO CANTIDAD) DE GÉNEROS MUSICALES - LINE CHART
+fetch('http://127.0.0.1:8000/api/genres')  //Verificar URL
+        .then(res => res.json())
+        .then((data) => {
+            for (let i=0; i < data.length; i++) {
+                var nombresGeneros = data[i].name;
+                var idGeneros= data[i].id;   
+            }
+            function graficarIDGeneros(generos, id){
+                    var trace1 = [
+                    {
+                    x: [nombresGeneros],
+                    y: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],         
+                    type: 'scatter',
+                    symbol: 'diamond'
+                    } 
+                ];
+                var layout = {
+                    title: 'ID por género musical',
+                    xaxis: {
+                        title: 'Bandas',
+                    },
+                    yaxis: {
+                        title: 'ID',
+                    }
+                };
+                Plotly.newPlot('graphic_4', trace1, layout);
+            }   
+        })
+
+//CONCIERTOS POR LUGAR DE REALIZACIÓN - DOT PLOT <--------------------------------------------- FALTA POR HACER
+fetch('http://127.0.0.1:8000/api/bands')
+        .then(res => res.json())
+        .then((data) => {
+            for (let i=0; i < data.length; i++) {
+                var nombresBandas = data[i].name;
+                var idPlaces= data[i].place;     // Omití hacer arreglos con push. Hay que ver cómo funciona el citado de variables en la var trace.
+            }
+            function graficarBandasXGenero(bandas, géneros){ //¿Cuál variable se pondría como parámetro?
+                    var trace1 = [
+                    {
+                    x: [nombresBandas],
+                    y: [idPlaces],            //¿Esto sí va a especificar el género de cada banda? Quizás deba ligarse el nombre de los géneros mejor.
+                    type: 'scatter'
+                    } 
+                ];
+                var layout = {
+                    title: 'Bandas por género',
+                    xaxis: {
+                        title: 'Bandas',
+                    },
+                    yaxis: {
+                        title: 'Países',
+                    }
+                };
+                Plotly.newPlot('graphic_5', trace1, layout);
+            }   
+        })
+
+//ÁLBUMES POR DÉCADAS - PIE CHART <--------------------------------------------- FALTA POR HACER
+fetch('http://127.0.0.1:8000/api/bands')
+        .then(res => res.json())
+        .then((data) => {
+            for (let i=0; i < data.length; i++) {
+                var nombresBandas = data[i].name;
+                var idPlaces= data[i].place;     // Omití hacer arreglos con push. Hay que ver cómo funciona el citado de variables en la var trace.
+            }
+            function graficarBandasXGenero(bandas, géneros){ //¿Cuál variable se pondría como parámetro?
+                    var trace1 = [
+                    {
+                    x: [nombresBandas],
+                    y: [idPlaces],            //¿Esto sí va a especificar el género de cada banda? Quizás deba ligarse el nombre de los géneros mejor.
+                    type: 'scatter'
+                    } 
+                ];
+                var layout = {
+                    title: 'Bandas por género',
+                    xaxis: {
+                        title: 'Bandas',
+                    },
+                    yaxis: {
+                        title: 'Países',
+                    }
+                };
+                Plotly.newPlot('graphic_6', trace1, layout);
+            }   
+        })
 
         // const bandasName = Object.values(arrName);
         // console.log(bandasName)
