@@ -107,31 +107,86 @@
                 <div id="formAlbums" class="py-3">
                     <form>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control border border-secondary-subtle"
-                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="bandName" class="form-label">Banda</label>
+                            <input type="text" class="form-control border border-secondary-subtle"
+                                id="bandName" required>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control border border-secondary-subtle"
-                                id="exampleInputPassword1">
+                            <label for="albumName" class="form-label">Nombre del álbum</label>
+                            <input type="text" class="form-control border border-secondary-subtle"
+                                id="albumName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="releaseDate" class="form-label">Fecha de lanzamiento</label>
+                            <input type="date" class="form-control border border-secondary-subtle"
+                                id="releaseDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="albumPlace" class="form-label">Lugar</label>
+                            <input type="text" class="form-control border border-secondary-subtle"
+                                id="albumPlace" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="albumDuration" class="form-label">Duración en minutos</label>
+                            <input type="time" class="form-control border border-secondary-subtle"
+                                id="albumDuration" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="copiesSold" class="form-label">Copias vendidas</label>
+                            <input type="number" class="form-control border border-secondary-subtle"
+                                id="copiesSold" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Subir</button>
                     </form>
-
                 </div>
             </div>
             <!-- Géneros -->
             <div class="tab-pane" id="generos" role="tabpanel" aria-labelledby="generos-tab" tabindex="0">
-
+                <form>
+                    <div class="mb-3">
+                        <label for="genre" class="form-label">Nombre del género</label>
+                        <input type="text" class="form-control border border-secondary-subtle"
+                            id="genre" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subir</button>
+                </form>
             </div>
             <!-- Bandas -->
             <div class="tab-pane" id="bandas" role="tabpanel" aria-labelledby="bandas-tab" tabindex="0">
-
+                <form>
+                    <div class="mb-3">
+                        <label for="band" class="form-label">Nombre de la banda</label>
+                        <input type="text" class="form-control border border-secondary-subtle"
+                            id="band" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subir</button>
+                </form>
             </div>
             <!-- Conciertos -->
             <div class="tab-pane" id="conciertos" role="tabpanel" aria-labelledby="conciertos-tab" tabindex="0">
-
+                <form>
+                    <div class="mb-3">
+                        <label for="concert" class="form-label">Nombre del concierto</label>
+                        <input type="text" class="form-control border border-secondary-subtle"
+                            id="concert" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="concertDate" class="form-label">Fecha</label>
+                        <input type="date" class="form-control border border-secondary-subtle"
+                            id="concertDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="concertDuration" class="form-label">Duración en minutos</label>
+                        <input type="time" class="form-control border border-secondary-subtle"
+                            id="concertDuration" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="concertPlace" class="form-label">Lugar</label>
+                        <input type="text" class="form-control border border-secondary-subtle"
+                            id="concertPlace" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subir</button>
+                </form>
             </div>
         </div>
 
