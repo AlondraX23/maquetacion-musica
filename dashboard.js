@@ -15,7 +15,7 @@ fetch('http://127.0.0.1:8000/api/bands')
             contenidoB += '<li>' + data[i].id + " - " + data[i].name + '</li>';
             var nombreBandas = data[i].name;
             var idBandas = data[i].id;
-
+            console.log(nombreBandas)
             // console.log(data[i].name);
             // console.log(data[i].id);
             
