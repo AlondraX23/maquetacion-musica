@@ -1,4 +1,8 @@
 .contenido {
     min-height: 100vh;
     min-width: 1024px;
-  }
+}
+
+.color-primario {
+    color: #2b3035;
+}

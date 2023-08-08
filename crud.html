@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Formularios</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0,0,256,256"
+                    style="fill:#000000;">
+                    <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                        style="mix-blend-mode: normal">
+                        <g transform="scale(8.53333,8.53333)">
+                            <path
+                                d="M21.055,3.018l-6.474,1.386c-0.922,0.197 -1.581,1.012 -1.581,1.955v11.354c0,1.949 -6,0.32 -6,5.766c0,1 0.602,3.52 3.466,3.52c3.52,0.001 4.534,-2.675 4.534,-5.645c0,-1.271 0,-11.816 0,-11.816l6.08,-1.334c0.537,-0.118 0.92,-0.594 0.92,-1.145v-3.277c0,-0.498 -0.459,-0.869 -0.945,-0.764z">
+                            </path>
+                        </g>
+                    </g>
+                </svg>Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="crud.html">Añadir</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Datos
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-lg-end">
+                            <li><a class="dropdown-item" href="#" onclick="irAlbums('crud.html#albums')">Álbumes</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="irGeneros('crud.html#generos')">Géneros
+                                    musicales</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="irBandas('crud.html#bandas')">Bandas</a></li>
+                            <li><a class="dropdown-item" href="#"
+                                    onclick="irConciertos('crud.html#conciertos')">Conciertos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="contenido container py-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-underline justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active color-primario" id="albums-tab" data-bs-toggle="tab"
+                    data-bs-target="#albums" type="button" role="tab" aria-controls="albums"
+                    aria-selected="true">Álbumes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link color-primario" id="generos-tab" data-bs-toggle="tab" data-bs-target="#generos"
+                    type="button" role="tab" aria-controls="generos" aria-selected="false">Géneros musicales</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link color-primario" id="bandas-tab" data-bs-toggle="tab" data-bs-target="#bandas"
+                    type="button" role="tab" aria-controls="bandas" aria-selected="false">Bandas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link color-primario" id="conciertos-tab" data-bs-toggle="tab"
+                    data-bs-target="#conciertos" type="button" role="tab" aria-controls="conciertos"
+                    aria-selected="false">Conciertos</button>
+            </li>
+        </ul>
+
+        <!-- Tab paneles -->
+        <div class="tab-content">
+            <!-- Álbums -->
+            <div class="tab-pane active" id="albums" role="tabpanel" aria-labelledby="albums-tab" tabindex="0">
+                <div id="tablaAlbums" class="pt-4">
+                    <table class="table">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                    </table>
+                    <button class="btn btn-primary">Agregar</button>
+                </div>
+                <hr>
+                <div id="formAlbums" class="py-3">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control border border-secondary-subtle"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control border border-secondary-subtle"
+                                id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subir</button>
+                    </form>
+
+                </div>
+            </div>
+            <!-- Géneros -->
+            <div class="tab-pane" id="generos" role="tabpanel" aria-labelledby="generos-tab" tabindex="0">
+
+            </div>
+            <!-- Bandas -->
+            <div class="tab-pane" id="bandas" role="tabpanel" aria-labelledby="bandas-tab" tabindex="0">
+
+            </div>
+            <!-- Conciertos -->
+            <div class="tab-pane" id="conciertos" role="tabpanel" aria-labelledby="conciertos-tab" tabindex="0">
+
+            </div>
+        </div>
+
+    </main>
+    <footer class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <span class="navbar-text text-secondary-emphasis">
+                &copy; 2023 Equipo 1
+            </span>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="crud.js"></script>
+</body>
+
+</html>
