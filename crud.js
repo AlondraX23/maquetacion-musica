@@ -10,34 +10,41 @@ fetch('http://127.0.0.1:8000/api/bands')
 
 
         for (let i = 0; i < data.length; i++) {
-            contenidoB += "<tr><td>" + data[i].name + "</td></tr>";
+            contenidoB += 
+            "<tr><td>" + data[i].name + "</td><td>" + data[i].genre_id + "</td><td><button onclick='editarDatosBandas' class='btn btn-warning rounded-pill me-2'>Editar</button>" + "<button onclick='borrarBandas("+data[i].id+")' class='btn btn-outline-danger'>Eliminar</button></td><tr>"; 
 
             // arrBandas.push(data[i].name);
         }
         listaB.innerHTML = contenidoB;
         console.log(arrBandas)
+        
+        function borrarBandas(id){
+            // if (data[i].id === id) {
+                
+            // }
+            fetch('http://127.0.0.1:8000/api/bands',{
+            method: "DELETE"    
+            })
+                .then(res=>res.json())
+                .then(json=>console.log(json))
+        }
     })
-    function editarDatosBandas() {
-        var tabla = document.getElementById("tdBandasBanda");
-        fetch('http://127.0.0.1:8000/api/bands')
-            .then(function(respuesta) {
-                return respuesta.json();
-            })
-            .then(function(datos) {
-                var contenido="";
-                for (let i = 0; i < datos.length; i++) {
-                    contenido = contenido + "<tr><td>" + datos[i].name + "</td><td><button onclick='editarDatosBandas' class='btn btn-warning'>Editar</button>" + "<button onclick='borrarBandas("+datos[i].id+")' class='btn btn-danger'>Eliminar</button></td><tr>"; 
-                }
-                tabla.innerHTML = contenido;
-            })
-    }
-    function borrarBandas(id){
-        fetch('http://127.0.0.1:8000/api/bands' + id,{
-        method: "DELETE"    
-        })
-            .then(res=>res.json())
-            .then(json=>console.log(json))
-    }
+    // const filteredArray = originalArray.filter(item => item.name !== valueToDelete);
+    //         const busquedaId = 3;
+    //             let resultado = null;
+    //             for (let i = 0; i < data.length; i++) {
+    //                 if (data[i].id === busquedaId) {
+    //                     resultado = data[i].name;
+    //                     break;
+    //                 }
+    //             }
+    //             if (resultado) {
+    //                 busqueda.innerHTML = resultado
+    //                 console.log("Found object with id:", resultado);
+    //             } else {
+    //                 console.log("Object with the desired id not found");
+    //             }
+
     
 
 //ALBUMS
@@ -51,25 +58,11 @@ fetch('http://127.0.0.1:8000/api/albums')
 
 
         for (let i = 0; i < data.length; i++) {
-            contenidoA += "<tr><td>" + data[i].name + "</td><td>" + data[i].band_id + "</td><td>" + data[i].release_date + "</td><td>" + data[i].place + "</td><td>" + data[i].duration + "</td><td>" + data[i].copies_sold + "</td></tr>";
+            contenidoA += "<tr><td>" + data[i].name + "</td><td>" + data[i].band_id + "</td><td>" + data[i].release_date + "</td><td>" + data[i].place + "</td><td>" + data[i].duration + "</td><td>" + data[i].copies_sold + "</td><td><button onclick='editarDatosBandas' class='btn btn-warning rounded-pill me-2'>Editar</button>" + "<button onclick='borrarBandas("+data[i].id+")' class='btn btn-outline-danger'>Eliminar</button></td><tr>";;
 
         }
         listaA.innerHTML = contenidoA;
     })
-    function editarDatosAlbums() {
-        var tabla = document.getElementById("tdAlbumsBanda");
-        fetch('http://127.0.0.1:8000/api/albums')
-            .then(function(respuesta) {
-                return respuesta.json();
-            })
-            .then(function(datos) {
-                var contenido="";
-                for (let i = 0; i < datos.length; i++) {
-                    contenido = contenido + "<tr><td>" + datos[i].name + "</td><td><button onclick='editarDatosAlbums' class='btn btn-warning'>Editar</button>" + "<button onclick='borrarAlbums("+datos[i].id+")' class='btn btn-danger'>Eliminar</button></td><tr>"; 
-                }
-                tabla.innerHTML = contenido;
-            })
-    }
     function borrarAlbums(id){
         fetch('http://127.0.0.1:8000/api/albums' + id, {
         method: "DELETE"    
@@ -90,25 +83,11 @@ fetch('http://127.0.0.1:8000/api/genres')
 
 
         for (let i = 0; i < data.length; i++) {
-            contenidoG += "<tr><td>" +  data[i].name + "</td></tr>";
+            contenidoG += "<tr><td>" +  data[i].name + "</td><td><button onclick='editarDatosBandas' class='btn btn-warning rounded-pill me-2'>Editar</button>" + "<button onclick='borrarBandas("+data[i].id+")' class='btn btn-outline-danger'>Eliminar</button></td><tr>";
 
         }
         listaG.innerHTML = contenidoG;
     })
-    function editarDatosGeneros() {
-        var tabla = document.getElementById("tdGenerosGenero");
-        fetch('http://127.0.0.1:8000/api/genres')
-            .then(function(respuesta) {
-                return respuesta.json();
-            })
-            .then(function(datos) {
-                var contenido="";
-                for (let i = 0; i < datos.length; i++) {
-                    contenido = contenido + "<tr><td>" + datos[i].name + "</td><td><button onclick='editarDatosGeneros' class='btn btn-warning'>Editar</button>" + "<button onclick='borrarGeneros("+datos[i].id+")' class='btn btn-danger'>Eliminar</button></td><tr>"; 
-                }
-                tabla.innerHTML = contenido;
-            })
-    }
     function borrarGeneros(id){
         fetch('http://127.0.0.1:8000/api/genres' + id, {
             method: "DELETE"    
@@ -128,25 +107,11 @@ fetch('http://127.0.0.1:8000/api/concerts')
 
 
         for (let i = 0; i < data.length; i++) {
-            contenidoC += "<tr><td>" +  data[i].name + "</td></tr>";
+            contenidoC += "<tr><td>" +  data[i].name + "</td><td>" + data[i].band_id + "</td><td>" + data[i].date + "</td><td>" + data[i].time + "</td><td>" + data[i].place+"</td><td><button onclick='editarDatosBandas' class='btn btn-warning rounded-pill me-2'>Editar</button>" + "<button onclick='borrarBandas("+data[i].id+")' class='btn btn-outline-danger'>Eliminar</button></td><tr>";
 
         }
         listaC.innerHTML = contenidoC;
     })
-    function editarDatosBandas() {
-        var tabla = document.getElementById("tdConciertosConcierto");
-        fetch('http://127.0.0.1:8000/api/concerts')
-            .then(function(respuesta) {
-                return respuesta.json();
-            })
-            .then(function(datos) {
-                var contenido="";
-                for (let i = 0; i < datos.length; i++) {
-                    contenido = contenido + "<tr><td>" + datos[i].name + "</td><td>" + datos[i].date + "</td><td>" + datos[i].time + "</td><td>" + datos[i].place + "</td><td><button onclick='editarDatosConciertos' class='btn btn-warning'>Editar</button>" + "<button onclick='borrarConciertos("+datos[i].id+")' class='btn btn-danger'>Eliminar</button></td><tr>"; 
-                }
-                tabla.innerHTML = contenido;
-            })
-    }
     function borrarConciertos(id){
         fetch('http://127.0.0.1:8000/api/concerts' + id, {
             method: "DELETE"    
